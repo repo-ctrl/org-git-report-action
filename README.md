@@ -2,6 +2,7 @@
 
 ## Inputs:
 `token`: A GitHub Token with the `admin:org` scopes to be able to call the Audit Log API
+
 `githuborg`: Name of the GitHub Org 
 
 ## Usage:
