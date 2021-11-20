@@ -1,0 +1,27 @@
+{
+  "name": "org-git-report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RohitDemo/org-git-report.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RohitDemo/org-git-report/issues"
+  },
+  "homepage": "https://github.com/RohitDemo/org-git-report#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@vercel/ncc": "^0.31.1",
+    "axios": "^0.24.0",
+    "json-2-csv": "^3.14.4"
+  }
+}

@@ -1,0 +1,22 @@
+name: Git events audit log
+on: [workflow_dispatch]
+
+jobs:
+  gitevents:
+    runs-on: ubuntu-latest
+    name: Audit log git events
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Git events
+        uses: ./ # Uses an action in the root directory
+        id: api-call
+        with:
+          token: '${{ secrets.TOKEN }}'
+          githuborg: 'RohitDemo'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: git-events-reports
+          path: git-events-report.csv

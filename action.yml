@@ -1,0 +1,14 @@
+name: 'Audit Log git events report'
+description: 'List git events from the Organization Audit Log'
+inputs:
+  token:  # id of input
+    description: 'Token with admin:org scopes'
+    required: true
+    default: ''
+  githuborg:  # id of input
+    description: 'Org Name'
+    required: true
+    default: ''
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
