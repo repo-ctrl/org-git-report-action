@@ -1,5 +1,10 @@
 name: Git events audit log
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+    inputs:
+      githuborg:
+        description: 'GitHub Org Name'
+        required: true
 
 jobs:
   gitevents:
@@ -15,7 +20,7 @@ jobs:
         id: api-call
         with:
           token: '${{ secrets.ADMIN_TOKEN }}'
-          githuborg: 'RohitDemo'
+          githuborg: '${{ github.event.inputs.githuborg }}'
       - uses: actions/upload-artifact@v2
         with:
           name: git-events-reports
