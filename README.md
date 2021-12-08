@@ -1,14 +1,20 @@
 # Action: Get the git events from an Organization Audit Log
 
+## Prerequisites:
+
+The GitHub git events audit log API is open only for **GitHub Enterprise** customers.
+
 ## Inputs:
-`token`: A GitHub Token with the `admin:org` scopes to be able to call the Audit Log API
+`token`: A GitHub Token with the `admin:org` scopes to be able to call the Audit Log API. The user whose token is used with this workflow will need to be an Organization Admin. 
 
 `githuborg`: Name of the GitHub Org 
 
-## Usage:
-1. Create a repository (Optional)
-2. Add the personal access token as the repository secret ADMIN_TOKEN
-3. Save the below workflow to `.github/workflows/gitevents.yml` 
+## Demo Workflows:
+
+### Secrets needed:
+
+Create a Personal Access Token with relevant scopes and save it as a Repo Secret - ADMIN_TOKEN
+
 ```
 name: Git events audit log
 on: 
@@ -28,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Git events
-        uses: rohitnb/org-git-report-action@v0.1
+        uses: repo-ctrl/org-git-report-action@vmain
         with:
           token: '${{ secrets.ADMIN_TOKEN }}'
           githuborg: '${{ github.event.inputs.githuborg }}'
@@ -37,8 +43,7 @@ jobs:
           name: git-events-reports
           path: git-events-report.csv
  ```
- 4. Go to the Actions tab and select the "Git events audit log" job and run the workflow. Enter the required org name in the input box.
- 5. The CSV report will be made available for download after the job successfully completes it's execution as git-events-reports.csv
- 
-**Note:** The user whose token is used with this workflow will need to be an Organization Admin. 
- 
+
+### Downloading the Audit Logs:
+
+The CSV report will be made available for download after the job successfully completes it's execution. 
