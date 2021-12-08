@@ -1,5 +1,9 @@
 name: 'Audit Log git events report'
 description: 'List git events from the Organization Audit Log'
+branding:
+  icon: 'clipboard'
+  color: 'red'
+  
 inputs:
   token:  # id of input
     description: 'Token with admin:org scopes'
